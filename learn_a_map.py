@@ -35,7 +35,7 @@ for i_ in tqdm(range(1161)):
     for j in range(50):
         y_var[j,:] = regr.estimators_[j].predict(np.array([x[test_ix],y[test_ix]]).T)
 
-    aqf = pred+np.mean(y_var,axis=0)
+    aqf = pred+np.var(y_var,axis=0)
     ix = np.where(aqf==np.max(aqf))[0]
     i = np.random.choice(ix)
 
